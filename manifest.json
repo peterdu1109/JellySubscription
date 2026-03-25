@@ -1,58 +1,60 @@
-{
-    "guid":  "A1B2C3D4-E5F6-4A5B-8C9D-0E1F2A3B4C5D",
-    "name":  "JellySubscription",
-    "description":  "Système d\u0027abonnement obligatoire et complet pour Jellyfin.",
-    "overview":  "Restreint automatiquement l\u0027accès aux médias du serveur aux utilisateurs disposant d\u0027un abonnement valide via interface de paiement, avec support de whitelist et période de grâce.",
-    "owner":  "peterdu1109",
-    "category":  "Authentication",
-    "imageUrl":  "https://raw.githubusercontent.com/peterdu1109/JellySubscription/main/logo.png",
-    "versions":  [
-                     {
-                         "version":  "1.1.9.0",
-                         "changelog":  "v1.1.9 - Forçage de l\u0027affichage de l\u0027interface Admin dans le menu latéral principal du Dashboard.",
-                         "targetAbi":  "10.11.0.0",
-                         "sourceUrl":  "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.9/JellySubscription.zip",
-                         "timestamp":  "2024-09-01T00:00:00Z",
-                         "checksum":  "41146E3A128863E140DFF19E9FC364DB"
-                     },
-                     {
-                         "version":  "1.1.9.0",
-                         "changelog":  "v1.1.9 - Pour version 10.11.6+",
-                         "targetAbi":  "10.11.6.0",
-                         "sourceUrl":  "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.9/JellySubscription.zip",
-                         "timestamp":  "2024-09-01T00:00:00Z",
-                         "checksum":  "41146E3A128863E140DFF19E9FC364DB"
-                     },
-                     {
-                         "version":  "1.1.8.0",
-                         "changelog":  "v1.1.8 - Rétablissement complet du template officiel de configuration Jellyfin.",
-                         "targetAbi":  "10.11.0.0",
-                         "sourceUrl":  "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.8/JellySubscription.zip",
-                         "checksum":  "41146E3A128863E140DFF19E9FC364DB",
-                         "timestamp":  "2024-08-01T00:00:00Z"
-                     },
-                     {
-                         "version":  "1.1.6.0",
-                         "changelog":  "v1.1.6 - Correction du package de ressources",
-                         "targetAbi":  "10.11.0.0",
-                         "sourceUrl":  "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.6/JellySubscription.zip",
-                         "checksum":  "1511782B8E99ADCDC8672BE892735AA5",
-                         "timestamp":  "2024-07-20T00:00:00Z"
-                     },
-                     {
-                         "version":  "1.1.4.0",
-                         "changelog":  "v1.1.4 - Ajout du logo Premium et améliorations",
-                         "targetAbi":  "10.11.0.0",
-                         "sourceUrl":  "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.4/JellySubscription.zip",
-                         "checksum":  "ED670E3C2F69B1B0F99489714374097A",
-                         "timestamp":  "2024-07-10T00:00:00Z"
-                     },
-                     {
-                         "version":  "1.1.0.0",
-                         "changelog":  "v1.1.0 - Release Initiale",
-                         "targetAbi":  "10.11.0.0",
-                         "sourceUrl":  "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.0/JellySubscription.zip",
-                         "timestamp":  "2024-05-01T00:00:00Z"
-                     }
-                 ]
-}
+[
+  {
+    "guid": "A1B2C3D4-E5F6-4A5B-8C9D-0E1F2A3B4C5D",
+    "name": "JellySubscription",
+    "description": "Système d'abonnement obligatoire et complet pour Jellyfin.",
+    "overview": "Restreint automatiquement l'accès aux médias du serveur aux utilisateurs disposant d'un abonnement valide via interface de paiement, avec support de whitelist et période de grâce.",
+    "owner": "peterdu1109",
+    "category": "Authentication",
+    "imageUrl": "https://raw.githubusercontent.com/peterdu1109/JellySubscription/main/logo.png",
+    "versions": [
+      {
+        "version": "1.1.9.0",
+        "changelog": "v1.1.9 - Forçage de l'affichage de l'interface Admin dans le menu latéral principal du Dashboard.",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.9/JellySubscription.zip",
+        "checksum": "41146E3A128863E140DFF19E9FC364DB",
+        "timestamp": "2024-09-01T00:00:00Z"
+      },
+      {
+        "version": "1.1.9.0",
+        "changelog": "v1.1.9 - Pour version 10.11.6+",
+        "targetAbi": "10.11.6.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.9/JellySubscription.zip",
+        "checksum": "41146E3A128863E140DFF19E9FC364DB",
+        "timestamp": "2024-09-01T00:00:00Z"
+      },
+      {
+        "version": "1.1.8.0",
+        "changelog": "v1.1.8 - Rétablissement complet du template officiel de configuration Jellyfin.",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.8/JellySubscription.zip",
+        "checksum": "6764D29DC668F3BD4E97ABEB8FBFCBD2",
+        "timestamp": "2024-08-01T00:00:00Z"
+      },
+      {
+        "version": "1.1.6.0",
+        "changelog": "v1.1.6 - Correction du package de ressources",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.6/JellySubscription.zip",
+        "checksum": "1511782B8E99ADCDC8672BE892735AA5",
+        "timestamp": "2024-07-20T00:00:00Z"
+      },
+      {
+        "version": "1.1.4.0",
+        "changelog": "v1.1.4 - Ajout du logo Premium et améliorations",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.4/JellySubscription.zip",
+        "checksum": "ED670E3C2F69B1B0F99489714374097A",
+        "timestamp": "2024-07-10T00:00:00Z"
+      },
+      {
+        "version": "1.1.0.0",
+        "changelog": "v1.1.0 - Release Initiale",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.0/JellySubscription.zip",
+        "timestamp": "2024-05-01T00:00:00Z"
+      }
+    ]
+  }
+]
