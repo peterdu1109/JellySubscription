@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Système d\'abonnement obligatoire pour accéder au contenu du serveur Jellyfin.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcfec251b539c3b4b72588f0e547c520d8264ec1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f76b8b8f12ceaeae29c52fbd78b5c8a5cbb3c7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("JellySubscription")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JellySubscription")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

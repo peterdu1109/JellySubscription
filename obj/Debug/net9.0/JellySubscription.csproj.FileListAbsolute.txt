@@ -9,3 +9,10 @@ C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\Jell
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.AssemblyInfo.cs
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.csproj.CoreCompileInputs.cache
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.sourcelink.json
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\bin\Debug\net9.0\JellySubscription.deps.json
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\bin\Debug\net9.0\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\bin\Debug\net9.0\JellySubscription.pdb
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\refint\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.pdb
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\ref\JellySubscription.dll

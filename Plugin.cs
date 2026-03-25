@@ -30,7 +30,8 @@ public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
             new PluginPageInfo
             {
                 Name = this.Name,
-                EmbeddedResourcePath = string.Format("{0}.Web.adminPage.html", GetType().Namespace)
+                EmbeddedResourcePath = string.Format("{0}.Web.adminPage.html", GetType().Namespace),
+                IsPluginConfigurationPage = true
             },
             // Client Script Injection for User Profile
             new PluginPageInfo
