@@ -26,18 +26,15 @@ public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
     {
         return new[]
         {
-            // Dashboard Admin Page
             new PluginPageInfo
             {
-                Name = this.Name,
-                EmbeddedResourcePath = string.Format("{0}.Web.adminPage.html", GetType().Namespace),
-                IsPluginConfigurationPage = true
+                Name = Name,
+                EmbeddedResourcePath = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}.Configuration.configPage.html", GetType().Namespace)
             },
-            // Client Script Injection for User Profile
             new PluginPageInfo
             {
                 Name = "JellySubscriptionProfileScript",
-                EmbeddedResourcePath = string.Format("{0}.Web.subscription-profile.js", GetType().Namespace)
+                EmbeddedResourcePath = string.Format(System.Globalization.CultureInfo.InvariantCulture, "{0}.Web.subscription-profile.js", GetType().Namespace)
             }
         };
     }

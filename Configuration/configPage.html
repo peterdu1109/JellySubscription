@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>JellySubscription</title>
+</head>
+<body>
+    <div id="JellySubscriptionConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-checkbox,emby-select">
+        <div data-role="content">
+            <div class="content-primary">
+                <form id="JellySubscriptionConfigForm">
+
+                    <div class="verticalSection">
+                        <h2 class="sectionTitle">Paramètres Généraux</h2>
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label class="emby-checkbox-label">
+                                <input type="checkbox" id="chkEnableSubscription" is="emby-checkbox" />
+                                <span>Activer le Paywall Global</span>
+                            </label>
+                            <div class="fieldDescription">Restreint immédiatement l'accès au serveur pour les non-abonnés.</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtPrice">Prix mensuel affiché</label>
+                            <input type="number" id="txtPrice" step="0.01" is="emby-input" />
+                            <div class="fieldDescription">Le prix affiché sur la page d'abonnement utilisateur.</div>
+                        </div>
+                    </div>
+
+                    <div class="verticalSection">
+                        <h2 class="sectionTitle">Règles d'Accès & Exceptions</h2>
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtGracePeriod">Période de grâce (jours)</label>
+                            <input type="number" id="txtGracePeriod" step="1" min="0" is="emby-input" />
+                            <div class="fieldDescription">Nombre de jours de tolérance après l'expiration de l'abonnement.</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtWhitelist">Utilisateurs exemptés (IDs séparés par des virgules)</label>
+                            <input type="text" id="txtWhitelist" is="emby-input" />
+                            <div class="fieldDescription">Les utilisateurs listés ici ne seront jamais bloqués.</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtExcludedFolders">Dossiers ignorés</label>
+                            <input type="text" id="txtExcludedFolders" is="emby-input" />
+                            <div class="fieldDescription">Chemins de bibliothèques accessibles sans abonnement (séparés par des virgules).</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtCustomMessage">Message de blocage personnalisé</label>
+                            <input type="text" id="txtCustomMessage" is="emby-input" />
+                            <div class="fieldDescription">Message affiché aux utilisateurs non-abonnés.</div>
+                        </div>
+                    </div>
+
+                    <div class="verticalSection">
+                        <h2 class="sectionTitle">Webhook & Paiement</h2>
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtWebhookUrl">URL de paiement (Stripe / PayPal)</label>
+                            <input type="url" id="txtWebhookUrl" is="emby-input" />
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtSecretKey">Clé secrète Webhook (HMAC)</label>
+                            <input type="password" id="txtSecretKey" is="emby-input" />
+                            <div class="fieldDescription">Utilisée pour valider les requêtes entrantes.</div>
+                        </div>
+                    </div>
+
+                    <div class="verticalSection">
+                        <h2 class="sectionTitle">Gestion manuelle des utilisateurs</h2>
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtUserIdToUpdate">ID Utilisateur (Guid)</label>
+                            <input type="text" id="txtUserIdToUpdate" is="emby-input" />
+                        </div>
+                        <div class="selectContainer">
+                            <label class="selectLabel" for="selStatus">Statut à octroyer</label>
+                            <select id="selStatus" is="emby-select">
+                                <option value="Active">Actif (1 Mois)</option>
+                                <option value="Lifetime">À Vie (Lifetime)</option>
+                                <option value="Inactive">Révoquer / Inactif</option>
+                            </select>
+                        </div>
+                        <button is="emby-button" type="button" id="btnUpdateUser" class="raised button-submit block emby-button">
+                            <span>Appliquer le statut</span>
+                        </button>
+                    </div>
+
+                    <div>
+                        <button is="emby-button" type="submit" class="raised button-submit block emby-button">
+                            <span>Sauvegarder</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var JellySubConfig = {
+                pluginUniqueId: 'A1B2C3D4-E5F6-4A5B-8C9D-0E1F2A3B4C5D'
+            };
+
+            document.querySelector('#JellySubscriptionConfigPage')
+                .addEventListener('pageshow', function() {
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(JellySubConfig.pluginUniqueId).then(function (config) {
+                        document.querySelector('#chkEnableSubscription').checked = config.IsSubscriptionModeEnabled || false;
+                        document.querySelector('#txtPrice').value = config.SubscriptionPrice || 5.00;
+                        document.querySelector('#txtWebhookUrl').value = config.WebhookUrl || '';
+                        document.querySelector('#txtSecretKey').value = config.WebhookSecretKey || '';
+                        document.querySelector('#txtGracePeriod').value = config.GracePeriodDays || 0;
+                        document.querySelector('#txtWhitelist').value = config.WhitelistedUserIds || '';
+                        document.querySelector('#txtCustomMessage').value = config.CustomBlockedMessage || '';
+                        document.querySelector('#txtExcludedFolders').value = config.ExcludedFolderPaths || '';
+                        Dashboard.hideLoadingMsg();
+                    });
+                });
+
+            document.querySelector('#JellySubscriptionConfigForm')
+                .addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(JellySubConfig.pluginUniqueId).then(function (config) {
+                        config.IsSubscriptionModeEnabled = document.querySelector('#chkEnableSubscription').checked;
+                        config.SubscriptionPrice = parseFloat(document.querySelector('#txtPrice').value);
+                        config.WebhookUrl = document.querySelector('#txtWebhookUrl').value;
+                        config.WebhookSecretKey = document.querySelector('#txtSecretKey').value;
+                        config.GracePeriodDays = parseInt(document.querySelector('#txtGracePeriod').value) || 0;
+                        config.WhitelistedUserIds = document.querySelector('#txtWhitelist').value.trim();
+                        config.CustomBlockedMessage = document.querySelector('#txtCustomMessage').value;
+                        config.ExcludedFolderPaths = document.querySelector('#txtExcludedFolders').value;
+                        ApiClient.updatePluginConfiguration(JellySubConfig.pluginUniqueId, config).then(function (result) {
+                            Dashboard.processPluginConfigurationUpdateResult(result);
+                        });
+                    });
+                    return false;
+                });
+
+            document.querySelector('#btnUpdateUser').addEventListener('click', function() {
+                var userId = document.querySelector('#txtUserIdToUpdate').value.trim();
+                var status = document.querySelector('#selStatus').value;
+                if (!userId) { Dashboard.alert('Veuillez entrer un ID utilisateur.'); return; }
+
+                var payload = {
+                    UserId: userId,
+                    Status: status,
+                    ExpiryDate: status === 'Lifetime' ? new Date(2100, 0, 1).toISOString() : new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString(),
+                    TransactionId: 'AdminUpdate_Manual'
+                };
+
+                ApiClient.ajax({
+                    type: 'POST',
+                    url: ApiClient.getUrl('Subscription/Admin/Update'),
+                    data: JSON.stringify(payload),
+                    contentType: 'application/json'
+                }).then(function() {
+                    Dashboard.alert('Statut mis à jour avec succès !');
+                }).catch(function() {
+                    Dashboard.alert('Erreur : vérifiez que vous êtes administrateur.');
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
