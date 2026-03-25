@@ -13,6 +13,7 @@
         "changelog": "v1.1.6 - Page de configuration admin corrigée avec convention officielle Jellyfin",
         "targetAbi": "10.11.0.0",
         "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.6/JellySubscription.zip",
+        "checksum": "1511782B8E99ADCDC8672BE892735AA5",
         "timestamp": "2024-08-01T00:00:00Z"
       },
       {
@@ -20,6 +21,7 @@
         "changelog": "v1.1.6 - Compatibilité 10.11.6",
         "targetAbi": "10.11.6.0",
         "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.6/JellySubscription.zip",
+        "checksum": "1511782B8E99ADCDC8672BE892735AA5",
         "timestamp": "2024-08-01T00:00:00Z"
       }
     ]
