@@ -9,10 +9,10 @@
     "imageUrl": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg",
     "versions": [
       {
-        "version": "1.1.1.0",
-        "changelog": "v1.1.1 - Added Premium UI, Lifetime support, and flexible configurations.",
+        "version": "1.1.2.0",
+        "changelog": "v1.1.2 - Fix GitHub Actions build path",
         "targetAbi": "10.11.0.0",
-        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.1/JellySubscription.zip",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.2/JellySubscription.zip",
         "checksum": "",
         "timestamp": "2024-06-01T00:00:00Z"
       }
