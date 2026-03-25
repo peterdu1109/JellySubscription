@@ -6,13 +6,14 @@
     "overview": "Restreint automatiquement l'accès aux médias du serveur aux utilisateurs disposant d'un abonnement valide via interface de paiement, avec support de whitelist et période de grâce.",
     "owner": "peterdu1109",
     "category": "Authentication",
-    "imageUrl": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg",
+    "imageUrl": "https://raw.githubusercontent.com/peterdu1109/JellySubscription/main/logo.png",
     "versions": [
       {
         "version": "1.1.4.0",
-        "changelog": "v1.1.4 - Correction affichage interface Admin et Script",
+        "changelog": "v1.1.4 - Correction affichage interface Admin et ajout d'un logo Premium",
         "targetAbi": "10.11.0.0",
         "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.4/JellySubscription.zip",
+        "checksum": "ED670E3C2F69B1B0F99489714374097A",
         "timestamp": "2024-08-01T00:00:00Z"
       },
       {
@@ -20,6 +21,7 @@
         "changelog": "v1.1.4 - Compatibilité étendue 10.11.6",
         "targetAbi": "10.11.6.0",
         "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.4/JellySubscription.zip",
+        "checksum": "ED670E3C2F69B1B0F99489714374097A",
         "timestamp": "2024-08-01T00:00:00Z"
       }
     ]
