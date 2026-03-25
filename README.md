@@ -23,14 +23,25 @@ Transformez votre serveur Jellyfin en un service premium. **JellySubscription** 
 - 🎨 **Interface Native :** Ajoute une section *"Mon Abonnement"* transparente directement dans les préférences de l'utilisateur Jellyfin.
 - 💼 **Dashboard Admin Complet :** Activez, désactivez ou forcez les abonnements depuis le panneau de configuration du serveur.
 
-## 🚀 Installation Rapide
+## 🚀 Installation
 
-> **Prérequis :** Jellyfin Serveur 10.11.x ou supérieur.
+> **Prérequis :** Serveur Jellyfin version **10.11.x ou supérieur**.
 
-1. Téléchargez la dernière [Release](https://github.com/peterdu1109/JellySubscription/releases) compilée (`JellySubscription_net9.zip`).
-2. Extrayez le fichier `.dll` dans le dossier `plugins/JellySubscription` de votre serveur.
+### Méthode 1 : Via les Dépôts Jellyfin (Recommandé)
+Bénéficiez des mises à jour automatiques en ajoutant ce dépôt à votre serveur.
+1. Allez dans **Tableau de Bord** > **Dépôts (Repositories)**.
+2. Ajoutez un nouveau dépôt en entrant :
+   - **Nom :** JellySubscription
+   - **URL :** `https://raw.githubusercontent.com/peterdu1109/JellySubscription/main/manifest.json`
+3. Allez dans l'onglet **Catalogue** et cherchez `JellySubscription`.
+4. Installez le plugin et redémarrez Jellyfin.
+
+### Méthode 2 : Installation Manuelle
+1. Téléchargez la dernière [Release Zip](https://github.com/peterdu1109/JellySubscription/releases).
+2. Procédez à l'extraction dans le dossier `plugins/JellySubscription` de votre serveur.
 3. Redémarrez Jellyfin.
-4. Rendez-vous dans **Tableau de Bord > Plugins > JellySubscription** pour paramétrer vos prix, clés secrètes et périodes de grâce.
+
+Une fois installé, rendez-vous dans le menu **Plugins** pour paramétrer la période de grâce, la clé de sécurité et vos utilisateurs autorisés !
 
 ## ⚙️ Configuration du Webhook (Développeurs)
 
