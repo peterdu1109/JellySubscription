@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>JellySubscription Admin</title>
+</head>
+<body>
+    <div id="subscriptionAdminPage" data-role="page" class="page type-interior pluginConfigurationPage withTabs" data-require="emby-input,emby-button,emby-checkbox,emby-select">
+        <div class="content-primary">
+            <div class="verticalSection">
+                <div class="sectionTitleContainer flex align-items-center">
+                    <h2 class="sectionTitle">Configuration de JellySubscription</h2>
+                </div>
+                
+                <form id="subscriptionConfigForm" class="padded-left padded-right padding-bottom-page">
+                    <p>Définissez les paramètres globaux d'abonnement pour ce serveur.</p>
+
+                    <div class="checkboxContainer checkboxContainer-withDescription">
+                        <label>
+                            <input type="checkbox" id="chkEnableSubscription" is="emby-checkbox" />
+                            <span>Activer le mode abonnement obligatoire</span>
+                        </label>
+                        <div class="fieldDescription checkboxFieldDescription">Bloque l'accès média aux utilisateurs non abonnés.</div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtPrice">Prix de l'abonnement mensuel (ex: 5.00)</label>
+                        <input type="number" id="txtPrice" step="0.01" is="emby-input" required />
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtWebhookUrl">URL de votre page de paiement hébergée (Stripe / PayPal)</label>
+                        <input type="url" id="txtWebhookUrl" is="emby-input" />
+                        <div class="fieldDescription">Les utilisateurs seront redirigés vers cette URL depuis leur profil.</div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtSecretKey">Clé Secrète du Webhook</label>
+                        <input type="password" id="txtSecretKey" is="emby-input" required />
+                        <div class="fieldDescription">Utilisée pour valider la provenance des requêtes de paiement.</div>
+                    </div>
+
+                    <button is="emby-button" type="submit" class="raised button-submit block formDialogFooterItem">
+                        <span>Enregistrer</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Liste des utilisateurs -->
+            <div class="verticalSection padded-left padded-right">
+                <h2 class="sectionTitle">Gestion des utilisateurs</h2>
+                <p>Pour forcer l'état d'un abonnement, veuillez entrer l'ID d'un utilisateur.</p>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="txtUserIdToUpdate">ID de l'utilisateur</label>
+                    <input type="text" id="txtUserIdToUpdate" is="emby-input" placeholder="ex: 1b2a3c4d..." />
+                </div>
+                <div class="inputContainer">
+                    <label class="inputLabel inputLabelUnfocused" for="selStatus">Statut</label>
+                    <select id="selStatus" is="emby-select">
+                        <option value="Active">Actif</option>
+                        <option value="Inactive">Inactif</option>
+                    </select>
+                </div>
+                <button is="emby-button" type="button" id="btnUpdateUser" class="raised">
+                    <span>Mettre à jour l'utilisateur</span>
+                </button>
+            </div>
+        </div>
+
+        <script>
+            var JellySubscriptionConfig = {
+                pluginId: "A1B2C3D4-E5F6-4A5B-8C9D-0E1F2A3B4C5D",
+
+                loadData: function (view) {
+                    ApiClient.getPluginConfiguration(JellySubscriptionConfig.pluginId).then(function (config) {
+                        view.querySelector('#chkEnableSubscription').checked = config.IsSubscriptionModeEnabled || false;
+                        view.querySelector('#txtPrice').value = config.SubscriptionPrice || 5.00;
+                        view.querySelector('#txtWebhookUrl').value = config.WebhookUrl || '';
+                        view.querySelector('#txtSecretKey').value = config.WebhookSecretKey || '';
+                    });
+                },
+
+                saveData: function (view) {
+                    Dashboard.showLoadingMsg();
+                    ApiClient.getPluginConfiguration(JellySubscriptionConfig.pluginId).then(function (config) {
+                        config.IsSubscriptionModeEnabled = view.querySelector('#chkEnableSubscription').checked;
+                        config.SubscriptionPrice = parseFloat(view.querySelector('#txtPrice').value);
+                        config.WebhookUrl = view.querySelector('#txtWebhookUrl').value;
+                        config.WebhookSecretKey = view.querySelector('#txtSecretKey').value;
+
+                        ApiClient.updatePluginConfiguration(JellySubscriptionConfig.pluginId, config).then(function () {
+                            Dashboard.processPluginConfigurationUpdateResult();
+                        });
+                    });
+                },
+
+                updateUser: function(view) {
+                    var userId = view.querySelector('#txtUserIdToUpdate').value.trim();
+                    var status = view.querySelector('#selStatus').value;
+                    if(!userId) {
+                        alert("Veuillez entrer un ID utilisateur.");
+                        return;
+                    }
+
+                    // On utilise l'API Custom que nous avons créée. Admin uniquement.
+                    var payload = {
+                        UserId: userId,
+                        Status: status,
+                        ExpiryDate: new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString(), // Active pour 1 mois
+                        TransactionId: "AdminUpdate"
+                    };
+
+                    ApiClient.ajax({
+                        type: "POST",
+                        url: ApiClient.getUrl("Subscription/Admin/Update"),
+                        data: JSON.stringify(payload),
+                        contentType: "application/json"
+                    }).then(function() {
+                        alert("Utilisateur mis à jour avec succès.");
+                    }).catch(function(err) {
+                        alert("Erreur lors de la mise à jour : " + err);
+                    });
+                }
+            };
+
+            document.querySelector('#subscriptionAdminPage').addEventListener('pageshow', function () {
+                var view = this;
+                Dashboard.showLoadingMsg();
+                JellySubscriptionConfig.loadData(view);
+                Dashboard.hideLoadingMsg();
+            });
+
+            document.querySelector('#subscriptionConfigForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                JellySubscriptionConfig.saveData(this.closest('.page'));
+            });
+
+            document.querySelector('#btnUpdateUser').addEventListener('click', function(e) {
+                e.preventDefault();
+                JellySubscriptionConfig.updateUser(this.closest('.page'));
+            });
+        </script>
+    </div>
+</body>
+</html>
