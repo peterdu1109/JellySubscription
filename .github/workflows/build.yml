@@ -19,10 +19,10 @@ jobs:
           dotnet-version: 9.0.x
 
       - name: Restore dependencies
-        run: dotnet restore JellySubscription.csproj
+        run: dotnet restore JellySubscription.csproj --no-cache
 
       - name: Build and Publish
-        run: dotnet publish JellySubscription.csproj -c Release -o ./publish
+        run: dotnet publish JellySubscription.csproj -c Release -o ./publish --no-incremental
 
       - name: Create Zip Archive
         run: cd publish && zip -r ../JellySubscription.zip * && cd ..
