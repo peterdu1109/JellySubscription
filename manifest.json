@@ -27,7 +27,7 @@
         "changelog": "v1.1.8 - Rétablissement complet du template officiel de configuration Jellyfin.",
         "targetAbi": "10.11.0.0",
         "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.8/JellySubscription.zip",
-        "checksum": "6764D29DC668F3BD4E97ABEB8FBFCBD2",
+        "checksum": "41146E3A128863E140DFF19E9FC364DB",
         "timestamp": "2024-08-01T00:00:00Z"
       },
       {
