@@ -9,17 +9,17 @@
     "imageUrl": "https://raw.githubusercontent.com/peterdu1109/JellySubscription/main/logo.png",
     "versions": [
       {
-        "version": "1.1.7.0",
-        "changelog": "v1.1.7 - Force clean build avec page de configuration admin embarquée",
+        "version": "1.1.8.0",
+        "changelog": "v1.1.8 - Admin config page fix + clean build",
         "targetAbi": "10.11.0.0",
-        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.7/JellySubscription.zip",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.8/JellySubscription.zip",
         "timestamp": "2024-08-01T00:00:00Z"
       },
       {
-        "version": "1.1.7.0",
-        "changelog": "v1.1.7 - Compatibilité 10.11.6",
+        "version": "1.1.8.0",
+        "changelog": "v1.1.8 - Compatibilité 10.11.6",
         "targetAbi": "10.11.6.0",
-        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.7/JellySubscription.zip",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.8/JellySubscription.zip",
         "timestamp": "2024-08-01T00:00:00Z"
       }
     ]
