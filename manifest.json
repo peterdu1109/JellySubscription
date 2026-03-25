@@ -9,20 +9,18 @@
     "imageUrl": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg",
     "versions": [
       {
-        "version": "1.1.3.0",
-        "changelog": "v1.1.3 - Trigger automated GitHub Actions release",
+        "version": "1.1.4.0",
+        "changelog": "v1.1.4 - Correction affichage interface Admin et Script",
         "targetAbi": "10.11.0.0",
-        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.3/JellySubscription.zip",
-        "checksum": "AB610A04DF8F2D963E7B5CAA8BC1EA7A",
-        "timestamp": "2024-07-01T00:00:00Z"
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.4/JellySubscription.zip",
+        "timestamp": "2024-08-01T00:00:00Z"
       },
       {
-        "version": "1.1.3.0",
-        "changelog": "v1.1.3 - Compatibilité étendue 10.11.6",
+        "version": "1.1.4.0",
+        "changelog": "v1.1.4 - Compatibilité étendue 10.11.6",
         "targetAbi": "10.11.6.0",
-        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.3/JellySubscription.zip",
-        "checksum": "AB610A04DF8F2D963E7B5CAA8BC1EA7A",
-        "timestamp": "2024-07-01T00:00:00Z"
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.4/JellySubscription.zip",
+        "timestamp": "2024-08-01T00:00:00Z"
       }
     ]
   }

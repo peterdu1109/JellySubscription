@@ -29,10 +29,8 @@ public class Plugin : BasePlugin<PluginConfiguration>, IHasWebPages
             // Dashboard Admin Page
             new PluginPageInfo
             {
-                Name = "JellySubscriptionAdmin",
-                EmbeddedResourcePath = string.Format("{0}.Web.adminPage.html", GetType().Namespace),
-                EnableInMainMenu = true,
-                MenuIcon = "paid"
+                Name = this.Name,
+                EmbeddedResourcePath = string.Format("{0}.Web.adminPage.html", GetType().Namespace)
             },
             // Client Script Injection for User Profile
             new PluginPageInfo
