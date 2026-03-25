@@ -40,6 +40,24 @@
                         <div class="fieldDescription">Utilisée pour valider la provenance des requêtes de paiement.</div>
                     </div>
 
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtGracePeriod">Période de grâce (en jours)</label>
+                        <input type="number" id="txtGracePeriod" step="1" min="0" is="emby-input" />
+                        <div class="fieldDescription">Tolérance octroyée après la date d'expiration de l'abonnement.</div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtWhitelist">Utilisateurs Liste Blanche (IDs séparés par des virgules)</label>
+                        <input type="text" id="txtWhitelist" is="emby-input" placeholder="Ex: eab4c3..., 12bc9f..." />
+                        <div class="fieldDescription">Exempte totalement ces utilisateurs du paiement.</div>
+                    </div>
+
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtCustomMessage">Message d'alerte (Accès Refusé)</label>
+                        <input type="text" id="txtCustomMessage" is="emby-input" />
+                        <div class="fieldDescription">Texte affiché si un utilisateur non-abonné tente de lancer un média.</div>
+                    </div>
+
                     <button is="emby-button" type="submit" class="raised button-submit block formDialogFooterItem">
                         <span>Enregistrer</span>
                     </button>
@@ -77,6 +95,9 @@
                         view.querySelector('#txtPrice').value = config.SubscriptionPrice || 5.00;
                         view.querySelector('#txtWebhookUrl').value = config.WebhookUrl || '';
                         view.querySelector('#txtSecretKey').value = config.WebhookSecretKey || '';
+                        view.querySelector('#txtGracePeriod').value = config.GracePeriodDays || 0;
+                        view.querySelector('#txtWhitelist').value = config.WhitelistedUserIds || '';
+                        view.querySelector('#txtCustomMessage').value = config.CustomBlockedMessage || '';
                     });
                 },
 
@@ -87,6 +108,9 @@
                         config.SubscriptionPrice = parseFloat(view.querySelector('#txtPrice').value);
                         config.WebhookUrl = view.querySelector('#txtWebhookUrl').value;
                         config.WebhookSecretKey = view.querySelector('#txtSecretKey').value;
+                        config.GracePeriodDays = parseInt(view.querySelector('#txtGracePeriod').value) || 0;
+                        config.WhitelistedUserIds = view.querySelector('#txtWhitelist').value.trim();
+                        config.CustomBlockedMessage = view.querySelector('#txtCustomMessage').value;
 
                         ApiClient.updatePluginConfiguration(JellySubscriptionConfig.pluginId, config).then(function () {
                             Dashboard.processPluginConfigurationUpdateResult();
