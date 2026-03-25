@@ -3,3 +3,9 @@ C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Debug\net9.0\JellySub
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Debug\net9.0\JellySubscription.AssemblyInfoInputs.cache
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Debug\net9.0\JellySubscription.AssemblyInfo.cs
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Debug\net9.0\JellySubscription.csproj.CoreCompileInputs.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.csproj.AssemblyReference.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.AssemblyInfoInputs.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.AssemblyInfo.cs
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.csproj.CoreCompileInputs.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Debug\net9.0\JellySubscription.sourcelink.json

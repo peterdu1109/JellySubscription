@@ -20,6 +20,7 @@ public class PluginConfiguration : BasePluginConfiguration
     public int GracePeriodDays { get; set; }
     public string WhitelistedUserIds { get; set; }
     public string CustomBlockedMessage { get; set; }
+    public string ExcludedFolderPaths { get; set; }
 
     // ----- BASE DE DONNÉES UTILISATEURS -----
     public Dictionary<Guid, SubscriptionInfo> UserSubscriptions { get; set; }
@@ -35,6 +36,7 @@ public class PluginConfiguration : BasePluginConfiguration
         GracePeriodDays = 0;
         WhitelistedUserIds = string.Empty;
         CustomBlockedMessage = "Abonnement requis. Veuillez renouveler votre accès depuis votre profil.";
+        ExcludedFolderPaths = string.Empty;
         
         UserSubscriptions = new Dictionary<Guid, SubscriptionInfo>();
     }
@@ -43,7 +45,7 @@ public class PluginConfiguration : BasePluginConfiguration
 public class SubscriptionInfo
 {
     public Guid UserId { get; set; }
-    public string Status { get; set; } // e.g., "Active", "Inactive"
+    public string Status { get; set; } // e.g., "Active", "Inactive", "Lifetime"
     public DateTime ExpiryDate { get; set; }
     public string TransactionId { get; set; }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UvQgCCcJf9M=",
+  "dgSpecHash": "TmjW3ynl1V8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscription\\JellySubscription.csproj",
+  "projectFilePath": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscriptionRepo\\JellySubscription.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bmeouchi\\.nuget\\packages\\bitfaster.caching\\2.5.4\\bitfaster.caching.2.5.4.nupkg.sha512",
     "C:\\Users\\bmeouchi\\.nuget\\packages\\diacritics\\4.0.17\\diacritics.4.0.17.nupkg.sha512",

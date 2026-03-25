@@ -1604,11 +1604,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscription\\JellySubscription.csproj",
+      "projectUniqueName": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscriptionRepo\\JellySubscription.csproj",
       "projectName": "JellySubscription",
-      "projectPath": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscription\\JellySubscription.csproj",
+      "projectPath": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscriptionRepo\\JellySubscription.csproj",
       "packagesPath": "C:\\Users\\bmeouchi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscription\\obj\\",
+      "outputPath": "C:\\Users\\bmeouchi\\Documents\\Jellypay\\JellySubscriptionRepo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\bmeouchi\\AppData\\Roaming\\NuGet\\NuGet.Config"

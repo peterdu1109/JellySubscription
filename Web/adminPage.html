@@ -7,81 +7,130 @@
 <body>
     <div id="subscriptionAdminPage" data-role="page" class="page type-interior pluginConfigurationPage withTabs" data-require="emby-input,emby-button,emby-checkbox,emby-select">
         <div class="content-primary">
-            <div class="verticalSection">
-                <div class="sectionTitleContainer flex align-items-center">
-                    <h2 class="sectionTitle">Configuration de JellySubscription</h2>
-                </div>
+            
+            <style>
+                .premium-banner {
+                    background: linear-gradient(135deg, #8A2387, #E94057, #F27121);
+                    color: white;
+                    padding: 30px;
+                    border-radius: 12px;
+                    margin-bottom: 2em;
+                    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+                    text-align: center;
+                }
+                .premium-banner h1 { margin: 0; font-size: 2em; font-weight: bold; }
+                .premium-banner p { margin-top: 10px; font-size: 1.1em; opacity: 0.9; }
                 
+                .settings-card {
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                    padding: 20px;
+                    margin-bottom: 25px;
+                    backdrop-filter: blur(10px);
+                }
+                .settings-card h3 {
+                    margin-top: 0;
+                    margin-bottom: 20px;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                    padding-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                }
+            </style>
+
+            <div class="premium-banner">
+                <h1>JellySubscription Pro v1.1.1</h1>
+                <p>Contrôlez l'accès au contenu avec élégance et flexibilité.</p>
+            </div>
+
+            <div class="verticalSection">
                 <form id="subscriptionConfigForm" class="padded-left padded-right padding-bottom-page">
-                    <p>Définissez les paramètres globaux d'abonnement pour ce serveur.</p>
+                    
+                    <div class="settings-card">
+                        <h3>Paramètres Généraux</h3>
+                        <div class="checkboxContainer checkboxContainer-withDescription">
+                            <label>
+                                <input type="checkbox" id="chkEnableSubscription" is="emby-checkbox" />
+                                <span>Activer le Paywall Global</span>
+                            </label>
+                            <div class="fieldDescription checkboxFieldDescription">Restreint immédiatement l'accès au serveur.</div>
+                        </div>
 
-                    <div class="checkboxContainer checkboxContainer-withDescription">
-                        <label>
-                            <input type="checkbox" id="chkEnableSubscription" is="emby-checkbox" />
-                            <span>Activer le mode abonnement obligatoire</span>
-                        </label>
-                        <div class="fieldDescription checkboxFieldDescription">Bloque l'accès média aux utilisateurs non abonnés.</div>
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtPrice">Prix mensuel affiché</label>
+                            <input type="number" id="txtPrice" step="0.01" is="emby-input" required />
+                        </div>
                     </div>
 
-                    <div class="inputContainer">
-                        <label class="inputLabel inputLabelUnfocused" for="txtPrice">Prix de l'abonnement mensuel (ex: 5.00)</label>
-                        <input type="number" id="txtPrice" step="0.01" is="emby-input" required />
+                    <div class="settings-card">
+                        <h3>Règles d'Accès & Exceptions</h3>
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtGracePeriod">Période de grâce (jours)</label>
+                            <input type="number" id="txtGracePeriod" step="1" min="0" is="emby-input" />
+                            <div class="fieldDescription">Tolérance avant la coupure après l'expiration.</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtWhitelist">Utilisateurs Exclus (Liste Blanche)</label>
+                            <input type="text" id="txtWhitelist" is="emby-input" placeholder="Ex: eab4c3..., 12bc9f..." />
+                            <div class="fieldDescription">Indiquez les ID de l'Admin ou des affiliés, séparés par des virgules.</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtExcludedFolders">Dossiers ou Chemins Ignorés</label>
+                            <input type="text" id="txtExcludedFolders" is="emby-input" placeholder="Ex: Podcasts, MusiqueLibre" />
+                            <div class="fieldDescription">Nouveau v1.1.1 : Ignore virtuellement la configuration lors du contrôle (prochaine phase backend).</div>
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtCustomMessage">Message de Rejet (Popup Utilisateur)</label>
+                            <input type="text" id="txtCustomMessage" is="emby-input" />
+                            <div class="fieldDescription">Ex: "Abonnement requis pour lancer cette vidéo."</div>
+                        </div>
                     </div>
 
-                    <div class="inputContainer">
-                        <label class="inputLabel inputLabelUnfocused" for="txtWebhookUrl">URL de votre page de paiement hébergée (Stripe / PayPal)</label>
-                        <input type="url" id="txtWebhookUrl" is="emby-input" />
-                        <div class="fieldDescription">Les utilisateurs seront redirigés vers cette URL depuis leur profil.</div>
+                    <div class="settings-card">
+                        <h3>Configuration Webhook & Paiement</h3>
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtWebhookUrl">URL de votre tunnel (ex: Stripe Checkout)</label>
+                            <input type="url" id="txtWebhookUrl" is="emby-input" />
+                        </div>
+
+                        <div class="inputContainer">
+                            <label class="inputLabel inputLabelUnfocused" for="txtSecretKey">Clé Secrète de Sécurité (API)</label>
+                            <input type="password" id="txtSecretKey" is="emby-input" required />
+                        </div>
                     </div>
 
-                    <div class="inputContainer">
-                        <label class="inputLabel inputLabelUnfocused" for="txtSecretKey">Clé Secrète du Webhook</label>
-                        <input type="password" id="txtSecretKey" is="emby-input" required />
-                        <div class="fieldDescription">Utilisée pour valider la provenance des requêtes de paiement.</div>
-                    </div>
-
-                    <div class="inputContainer">
-                        <label class="inputLabel inputLabelUnfocused" for="txtGracePeriod">Période de grâce (en jours)</label>
-                        <input type="number" id="txtGracePeriod" step="1" min="0" is="emby-input" />
-                        <div class="fieldDescription">Tolérance octroyée après la date d'expiration de l'abonnement.</div>
-                    </div>
-
-                    <div class="inputContainer">
-                        <label class="inputLabel inputLabelUnfocused" for="txtWhitelist">Utilisateurs Liste Blanche (IDs séparés par des virgules)</label>
-                        <input type="text" id="txtWhitelist" is="emby-input" placeholder="Ex: eab4c3..., 12bc9f..." />
-                        <div class="fieldDescription">Exempte totalement ces utilisateurs du paiement.</div>
-                    </div>
-
-                    <div class="inputContainer">
-                        <label class="inputLabel inputLabelUnfocused" for="txtCustomMessage">Message d'alerte (Accès Refusé)</label>
-                        <input type="text" id="txtCustomMessage" is="emby-input" />
-                        <div class="fieldDescription">Texte affiché si un utilisateur non-abonné tente de lancer un média.</div>
-                    </div>
-
-                    <button is="emby-button" type="submit" class="raised button-submit block formDialogFooterItem">
-                        <span>Enregistrer</span>
+                    <button is="emby-button" type="submit" class="raised button-submit block formDialogFooterItem" style="border-radius:25px; font-weight:bold; padding: 12px; background: rgba(0, 164, 220, 0.2); color: #00A4DC; border: 1px solid #00A4DC;">
+                        <span>Sauvegarder la Configuration Globale</span>
                     </button>
                 </form>
             </div>
 
             <!-- Liste des utilisateurs -->
             <div class="verticalSection padded-left padded-right">
-                <h2 class="sectionTitle">Gestion des utilisateurs</h2>
-                <p>Pour forcer l'état d'un abonnement, veuillez entrer l'ID d'un utilisateur.</p>
-                <div class="inputContainer">
-                    <label class="inputLabel inputLabelUnfocused" for="txtUserIdToUpdate">ID de l'utilisateur</label>
-                    <input type="text" id="txtUserIdToUpdate" is="emby-input" placeholder="ex: 1b2a3c4d..." />
+                <div class="settings-card" style="border-color: #E94057;">
+                    <h3>Forcer l'Abonnement d'un Utilisateur</h3>
+                    <p style="opacity: 0.8; margin-bottom: 20px;">Permet d'octroyer le statut "Lifetime" ou "Actif" instantanément (v1.1.1).</p>
+                    
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="txtUserIdToUpdate">ID de l'utilisateur (Guid)</label>
+                        <input type="text" id="txtUserIdToUpdate" is="emby-input" placeholder="ex: 1b2a3c4d..." />
+                    </div>
+                    <div class="inputContainer">
+                        <label class="inputLabel inputLabelUnfocused" for="selStatus">Statut Octroyé</label>
+                        <select id="selStatus" is="emby-select">
+                            <option value="Active">Actif (1 Mois)</option>
+                            <option value="Lifetime">À Vie (Lifetime)</option>
+                            <option value="Inactive">Révoquer / Inactif</option>
+                        </select>
+                    </div>
+                    <button is="emby-button" type="button" id="btnUpdateUser" class="raised" style="background:#E94057; color:#fff; border-radius: 20px;">
+                        <span>Appliquer le Statut Utilisateur</span>
+                    </button>
                 </div>
-                <div class="inputContainer">
-                    <label class="inputLabel inputLabelUnfocused" for="selStatus">Statut</label>
-                    <select id="selStatus" is="emby-select">
-                        <option value="Active">Actif</option>
-                        <option value="Inactive">Inactif</option>
-                    </select>
-                </div>
-                <button is="emby-button" type="button" id="btnUpdateUser" class="raised">
-                    <span>Mettre à jour l'utilisateur</span>
-                </button>
             </div>
         </div>
 
@@ -98,6 +147,7 @@
                         view.querySelector('#txtGracePeriod').value = config.GracePeriodDays || 0;
                         view.querySelector('#txtWhitelist').value = config.WhitelistedUserIds || '';
                         view.querySelector('#txtCustomMessage').value = config.CustomBlockedMessage || '';
+                        view.querySelector('#txtExcludedFolders').value = config.ExcludedFolderPaths || '';
                     });
                 },
 
@@ -111,6 +161,7 @@
                         config.GracePeriodDays = parseInt(view.querySelector('#txtGracePeriod').value) || 0;
                         config.WhitelistedUserIds = view.querySelector('#txtWhitelist').value.trim();
                         config.CustomBlockedMessage = view.querySelector('#txtCustomMessage').value;
+                        config.ExcludedFolderPaths = view.querySelector('#txtExcludedFolders').value;
 
                         ApiClient.updatePluginConfiguration(JellySubscriptionConfig.pluginId, config).then(function () {
                             Dashboard.processPluginConfigurationUpdateResult();
@@ -122,16 +173,15 @@
                     var userId = view.querySelector('#txtUserIdToUpdate').value.trim();
                     var status = view.querySelector('#selStatus').value;
                     if(!userId) {
-                        alert("Veuillez entrer un ID utilisateur.");
+                        alert("Veuillez entrer un ID utilisateur valide.");
                         return;
                     }
 
-                    // On utilise l'API Custom que nous avons créée. Admin uniquement.
                     var payload = {
                         UserId: userId,
                         Status: status,
-                        ExpiryDate: new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString(), // Active pour 1 mois
-                        TransactionId: "AdminUpdate"
+                        ExpiryDate: status === "Lifetime" ? new Date(2100, 0, 1).toISOString() : new Date(new Date().setMonth(new Date().getMonth() + 1)).toISOString(),
+                        TransactionId: "AdminUpdate_v1.1.1"
                     };
 
                     ApiClient.ajax({
@@ -140,9 +190,9 @@
                         data: JSON.stringify(payload),
                         contentType: "application/json"
                     }).then(function() {
-                        alert("Utilisateur mis à jour avec succès.");
+                        alert("Statut de l'utilisateur [" + status + "] mis à jour avec succès !");
                     }).catch(function(err) {
-                        alert("Erreur lors de la mise à jour : " + err);
+                        alert("Erreur lors de la mise à jour : Vérifiez que vous êtes connecté en tant qu'Administrateur.\n" + err);
                     });
                 }
             };

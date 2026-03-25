@@ -10,3 +10,16 @@ C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Release\net9.0\JellyS
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Release\net9.0\refint\JellySubscription.dll
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Release\net9.0\JellySubscription.pdb
 C:\Users\bmeouchi\Documents\Jellypay\JellySubscription\obj\Release\net9.0\ref\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.csproj.AssemblyReference.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.AssemblyInfoInputs.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.AssemblyInfo.cs
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.csproj.CoreCompileInputs.cache
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.sourcelink.json
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\refint\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\JellySubscription.pdb
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\bin\Release\net9.0\JellySubscription.deps.json
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\bin\Release\net9.0\JellySubscription.dll
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\bin\Release\net9.0\JellySubscription.pdb
+C:\Users\bmeouchi\Documents\Jellypay\JellySubscriptionRepo\obj\Release\net9.0\ref\JellySubscription.dll
