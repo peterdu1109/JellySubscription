@@ -2,18 +2,18 @@
   {
     "guid": "A1B2C3D4-E5F6-4A5B-8C9D-0E1F2A3B4C5D",
     "name": "JellySubscription",
-    "description": "Système d'abonnement obligatoire pour accéder au contenu du serveur.",
-    "overview": "Restreint l'accès aux médias du serveur aux utilisateurs disposant d'un abonnement valide.",
-    "owner": "Jellypay",
+    "description": "Système d'abonnement obligatoire et complet pour Jellyfin.",
+    "overview": "Restreint automatiquement l'accès aux médias du serveur aux utilisateurs disposant d'un abonnement valide via interface de paiement, avec support de whitelist et période de grâce.",
+    "owner": "peterdu1109",
     "category": "Authentication",
-    "imageUrl": "",
+    "imageUrl": "https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/icon-transparent.svg",
     "versions": [
       {
-        "version": "1.0.0.0",
-        "changelog": "Initial release",
-        "targetAbi": "10.11.6.0",
-        "sourceUrl": "https://github.com/bmeouchi/JellySubscription/archive/refs/tags/v1.0.0.zip",
-        "checksum": "CHECKSUM_PLACEHOLDER",
+        "version": "1.1.0.0",
+        "changelog": "Initial release with Grace Period, Whitelist, and Admin Configurations",
+        "targetAbi": "10.11.0.0",
+        "sourceUrl": "https://github.com/peterdu1109/JellySubscription/releases/download/v1.1.0/JellySubscription.zip",
+        "checksum": "",
         "timestamp": "2024-05-01T00:00:00Z"
       }
     ]
